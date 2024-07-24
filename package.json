@@ -1,6 +1,6 @@
 {
   "name": "relay-transform-scalar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse and serialize scalars into complex objects (e.g. dates) with relay",
   "repository": "https://github.com/phikes/relay-transform-scalar",
   "author": "Phillip Kessels <info@phikes.de>",
@@ -17,5 +17,15 @@
   "prepublish": "build",
   "scripts": {
     "build": "tsc"
-  }
+  },
+  "keywords": [
+    "react",
+    "relay",
+    "scalar",
+    "hydration",
+    "transformation",
+    "date",
+    "datetime",
+    "graphql"
+  ]
 }
