@@ -5,6 +5,8 @@ executing a GraphQL operation.
 
 ## Usage
 
+### relay.config.json
+
 ```JSON
 {
   // ...
@@ -13,6 +15,8 @@ executing a GraphQL operation.
   }
 }
 ```
+
+### Relay setup
 
 ```typescript
 // ...
@@ -44,6 +48,8 @@ const environment = environmentProxy(new Environment({
   /* ... */
 }), config);
 ```
+
+### Marking fields for parsing
 
 Right now you have to insert this GraphQL directive for every field of type
 `ISO8601DateTime` otherwise your typescript types will be wrong (the field
