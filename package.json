@@ -1,0 +1,21 @@
+{
+  "name": "relay-transform-scalar",
+  "version": "1.0.0",
+  "description": "Parse and serialize scalars into complex objects (e.g. dates) with relay",
+  "repository": "https://github.com/phikes/relay-transform-scalar",
+  "author": "Phillip Kessels <info@phikes.de>",
+  "license": "MIT",
+  "dependencies": {
+    "relay-runtime": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/relay-runtime": "^17.0.0",
+    "typescript": "^5.5.3"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "prepublish": "build",
+  "scripts": {
+    "build": "tsc"
+  }
+}
