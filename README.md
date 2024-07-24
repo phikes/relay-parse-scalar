@@ -5,6 +5,8 @@ executing a GraphQL operation.
 
 ## Usage
 
+Note: This README uses `ISO8601DateTime` as an example.
+
 ### relay.config.json
 
 ```JSON
