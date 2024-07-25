@@ -15,11 +15,11 @@ export const environmentProxy = (environment: IEnvironment, config: Config): IEn
 
         const serializedVariables = Object.keys(variables).reduce((serializedVariables, key) => {
           const value = variables[key]
-          const configOption = Object.values(config).find((configOption) => configOption((concreteConfigOption) => concreteConfigOption.test(value)))
+          const configOption = Object.values(config).find((configOption) => configOption((concreteConfigOption) => concreteConfigOption.serialize && concreteConfigOption.serializeTest?.(value)))
 
           return {
             ...serializedVariables,
-            [key]: configOption ? configOption((concreteConfigOption) => concreteConfigOption.serialize(value)) : value
+            [key]: configOption ? configOption((concreteConfigOption) => concreteConfigOption.serialize!(value)) : value
           }
         }, {})
 

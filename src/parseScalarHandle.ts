@@ -9,7 +9,8 @@ export const parseScalarHandle = (handle: string, config: Config) => ({
     if (!isParseScalarHandle(handle)) throw new Error(`\`parseScalarHandle\` received an unknown handle \`${handle}\`. Make sure you call \`parseScalarHandle\` conditionally like so in your handle provider: \`if (isParseScalarHandle(handle) return parseScalarHandle(handle, config))\``)
 
     const graphQLType = handle.match(PARSE_SCALAR_HANDLE_REGEX)!.groups!.graphQLType
-    if (!(graphQLType in config)) throw new Error(`\`parseScalar\` received \`${graphQLType}\` for which the provided config didn't contain an option. Make sure the config object contains the following option: \`{${graphQLType}: {parse: /* ... */, serialize: /* ... */, prototype: /* ... */ }}\``)
+    const configOption = config.find((configOption) => configOption(({ parseType }) => parseType === graphQLType))
+    if (!configOption) throw new Error(`\`parseScalar\` received \`${graphQLType}\` for which the provided config didn't contain an option.`)
 
     const record = store.get(dataID)
     const value = record?.getValue(fieldKey)
@@ -20,7 +21,7 @@ export const parseScalarHandle = (handle: string, config: Config) => ({
     mutator.setValue(
       dataID,
       handleKey,
-      config[graphQLType]((configOption) => configOption.parse(value))
+      configOption(({ parse }) => parse(value))
     );
   }
 })
