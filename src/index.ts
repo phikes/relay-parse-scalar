@@ -1,5 +1,5 @@
 export * from "./configOption"
-export * from "./environmentProxy"
 export * from "./isParseScalarHandle"
 export * from "./parseScalarHandle"
+export * from "./serializeVariables"
 export * from "./types"
